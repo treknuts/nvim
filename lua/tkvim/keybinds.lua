@@ -5,7 +5,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- refactor whatever your cursor is on
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>st", "<cmd>Floaterminal<CR>")
+-- Starts and toggles the same terminal session
+vim.keymap.set("n", "<leader>tt", "<cmd>Floaterminal<CR>")
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
 -- Vim motions between windows
