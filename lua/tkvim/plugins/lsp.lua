@@ -26,13 +26,12 @@ return {
         vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
         vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
         vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-        vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+        vim.keymap.set("i", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
       end,
     })
 
     -----------
     -- SERVERS
-    require("lspconfig").jdtls.setup({})
     require("lspconfig").html.setup({})
     require("lspconfig").cssls.setup({})
     require("lspconfig").eslint.setup({
@@ -44,8 +43,8 @@ return {
       end,
     })
     require("lspconfig").gopls.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+      -- on_attach = on_attach,
+      capabilities = lspconfig_defaults.capabilities,
       cmd = { "gopls" },
       filetypes = { "go", "gomod", "gowork", "gotmpl" },
       root_dir = require("lspconfig.util").root_pattern("go.mod", "go.work", ".git"),
