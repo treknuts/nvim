@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
   local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-  local workspace_dir = "/home/treknuts/research/" .. project_name
+  local workspace_dir = "/home/treknuts/code/" .. project_name
   local config = {
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
