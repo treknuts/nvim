@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
   local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-  local workspace_dir = "/home/treknuts/code/" .. project_name
+  local workspace_dir = "/home/treknuts/.local/share/nvim/jdtls-workspace/" .. project_name
   local config = {
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -55,7 +55,17 @@ function M.setup()
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options
     settings = {
-      java = {},
+      java = {
+        configuration = {
+          updateBuildConfiguration = "automatic",
+        },
+        compile = {
+          nullAnalysis = { mode = "automatic" },
+        },
+        project = {
+          referencedLibraries = { "lib/**/*.jar" },
+        },
+      },
     },
 
     -- Language server `initializationOptions`
@@ -66,6 +76,11 @@ function M.setup()
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
+      settings = {
+        java = {
+          contentProvider = { preferred = "fernflower" },
+        },
+      },
       bundles = {},
     },
   }

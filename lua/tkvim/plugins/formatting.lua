@@ -8,6 +8,7 @@ return {
       formatters_by_ft = {
         javascript = { "prettier" },
         html = { "prettier" },
+        tml = { "prettier" },
         css = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
@@ -17,13 +18,24 @@ return {
         lua = { "stylua" },
         kotlin = { "ktlint" },
         go = { "goimports" },
-        sql = { "sleek" },
+        sql = { "sqlfluff" },
         xml = { "xmlformatter" },
+      },
+      formatters = {
+        sqlfluff = {
+          command = vim.fn.stdpath("data") .. "/mason/bin/sqlfluff",
+          args = {
+            "format",
+            "-",
+          },
+          stdin = true,
+          exit_codes = { 0, 1 },
+        },
       },
       format_on_save = {
         lsp_fallback = true,
         async = false,
-        timeout_ms = 500,
+        timeout_ms = 5000,
       },
     })
 
@@ -31,7 +43,7 @@ return {
       conform.format({
         lsp_fallback = true,
         async = false,
-        timeout_ms = 500,
+        timeout_ms = 5000,
       })
     end, { desc = "Format file or range (in visual mode)" })
   end,

@@ -19,6 +19,7 @@ vim.keymap.set("n", "<Tab>", "<cmd>BufferNext<CR>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>BufferPrevious<CR>")
 -- Quit Buffer
 vim.keymap.set("n", "<leader>qb", "<cmd>BufferClose<CR>")
+vim.keymap.set("n", "<leader>ljo", '<cmd>lua require("jdtls").organize_imports()<CR>')
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlights text when yanking",
