@@ -31,6 +31,9 @@ return {
           stdin = true,
           exit_codes = { 0, 1 },
         },
+        prettier = {
+          args = { "--parser", "html", "--stdin-filepath", "$FILENAME" },
+        },
       },
       format_on_save = {
         lsp_fallback = true,
