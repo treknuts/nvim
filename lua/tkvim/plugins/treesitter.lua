@@ -13,7 +13,8 @@ return {
         "vim",
         "vimdoc",
         "c",
-        "query"
+        "query",
+        "markdown",
       },
       sync_install = false,
       auto_install = true,
@@ -23,9 +24,8 @@ return {
       },
       indent = {
         enable = true,
-        disable = { "python", "c" }
+        disable = { "python", "c" },
       },
     })
-  end
+  end,
 }
-
