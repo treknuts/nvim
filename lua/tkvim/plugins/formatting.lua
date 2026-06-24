@@ -5,10 +5,11 @@ return {
     local conform = require("conform")
 
     conform.setup({
+      log_level = vim.log.levels.DEBUG,
       formatters_by_ft = {
         javascript = { "prettier" },
         html = { "prettier" },
-        tml = { "prettier" },
+        tml = { "prettier_html" },
         css = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
@@ -32,6 +33,10 @@ return {
           exit_codes = { 0, 1 },
         },
         prettier = {
+          args = { "--stdin-filepath", "$FILENAME" },
+        },
+        prettier_html = {
+          command = "prettier",
           args = { "--parser", "html", "--stdin-filepath", "$FILENAME" },
         },
       },
