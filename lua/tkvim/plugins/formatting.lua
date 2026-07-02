@@ -6,10 +6,29 @@ return {
 
     conform.setup({
       log_level = vim.log.levels.DEBUG,
+      formatters = {
+        sqlfluff = {
+          command = vim.fn.stdpath("data") .. "/mason/bin/sqlfluff",
+          args = {
+            "format",
+            "-",
+          },
+          stdin = true,
+          exit_codes = { 0, 1 },
+        },
+        prettier_html = {
+          command = "prettier",
+          args = {
+            "--parser",
+            "html",
+            "--stdin-filepath",
+            "$FILENAME",
+          },
+        },
+      },
       formatters_by_ft = {
         javascript = { "prettier" },
-        html = { "prettier" },
-        tml = { "prettier_html" },
+        html = { "prettier_html" },
         css = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
@@ -22,28 +41,9 @@ return {
         sql = { "sqlfluff" },
         xml = { "xmlformatter" },
       },
-      formatters = {
-        sqlfluff = {
-          command = vim.fn.stdpath("data") .. "/mason/bin/sqlfluff",
-          args = {
-            "format",
-            "-",
-          },
-          stdin = true,
-          exit_codes = { 0, 1 },
-        },
-        prettier = {
-          args = { "--stdin-filepath", "$FILENAME" },
-        },
-        prettier_html = {
-          command = "prettier",
-          args = { "--parser", "html", "--stdin-filepath", "$FILENAME" },
-        },
-      },
       format_on_save = {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 5000,
+        timeout_ms = 500,
+        lsp_format = "fallback",
       },
     })
 
