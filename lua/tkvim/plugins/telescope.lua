@@ -35,7 +35,7 @@ return {
       if vim.fn.filereadable(search_target) == 1 then
         vim.cmd("edit " .. search_target)
       else
-        require("telescope.builtin").find_files({
+        builtin.find_files({
           default_text = "^" .. vim.fn.expand("%:t:r") .. "." .. not_file_extension,
         })
       end
