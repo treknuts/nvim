@@ -58,7 +58,6 @@ end
 -- Example usage:
 -- Basic floating window (80% of screen)
 -- local buf, win = create_floating_window()
-
 vim.api.nvim_create_user_command("Floaterminal", function()
   if not vim.api.nvim_win_is_valid(state.floating.win) then
     state.floating = create_floating_window({ buf = state.floating.buf })
