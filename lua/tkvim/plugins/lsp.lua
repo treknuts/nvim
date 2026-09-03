@@ -24,42 +24,11 @@ return {
         vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
         vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
         vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-        vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+        vim.keymap.set("n", "rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
         vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
         vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
       end,
     })
-
-    -----------
-    -- SERVERS
-    -- require("lspconfig").html.setup({})
-    -- require("lspconfig").cssls.setup({})
-    -- require("lspconfig").sqlls.setup({})
-    -- vim.lsp.config.html = {}
-    -- vim.lsp.config.enable("html")
-    -- vim.lsp.config.cssls = {}
-    -- vim.lsp.config.enable("cssls")
-    -- vim.lsp.config.sqlls = {}
-    -- vim.lsp.config.enable("sqlls")
-    -- vim.lsp.config.eslint = {
-    --   on_attach = function(client, bufnr)
-    --     vim.api.nvim_create_autocmd("BufWritePre", {
-    --       buffer = bufnr,
-    --       command = "EslintFixAll",
-    --     })
-    --   end,
-    -- }
-    -- vim.lsp.config.enable("eslint")
-    -- vim.lsp.config.gopls = {
-    --   -- on_attach = on_attach,
-    --   capabilities = lspconfig_defaults.capabilities,
-    --   cmd = { "gopls" },
-    --   filetypes = { "go", "gomod", "gowork", "gotmpl" },
-    --   root_dir = require("lspconfig.util").root_pattern("go.mod", "go.work", ".git"),
-    -- }
-    -- vim.lsp.config.enable("gopls")
-    -- SERVERS
-    -----------
 
     local cmp = require("cmp")
 
