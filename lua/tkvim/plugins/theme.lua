@@ -1,4 +1,4 @@
-return { "ellisonleao/gruvbox.nvim", priority = 1000, config = true }
+return { "ellisonleao/gruvbox.nvim", priority = 999, config = true }
 -- return {
 --   "catppuccin/nvim",
 --   name = "catppuccin",
