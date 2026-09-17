@@ -31,6 +31,7 @@ local function create_floating_window(opts)
     buf = opts.buf
   else
     buf = vim.api.nvim_create_buf(false, true)
+    vim.bo[buf].buflisted = false
   end
 
   -- Configure window options
@@ -46,6 +47,8 @@ local function create_floating_window(opts)
 
   -- Create the floating window
   local win = vim.api.nvim_open_win(buf, true, win_opts)
+
+  vim.bo[buf].filetype = opts.filetype or "floaterminal"
 
   -- Set buffer options
   -- vim.api.nvim_buf_set_option(buf, "bufhidden", "wipe")
@@ -63,6 +66,7 @@ vim.api.nvim_create_user_command("Floaterminal", function()
     state.floating = create_floating_window({ buf = state.floating.buf })
     if vim.bo[state.floating.buf].buftype ~= "terminal" then
       vim.cmd.term()
+      vim.bo[state.floating.buf].buflisted = false
     end
   else
     vim.api.nvim_win_hide(state.floating.win)

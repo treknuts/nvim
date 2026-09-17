@@ -14,12 +14,22 @@ vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>")
 vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>")
 vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>")
-vim.keymap.set("n", "<Tab>", "<cmd>BufferNext<CR>")
--- motions between windows end
-vim.keymap.set("n", "<S-Tab>", "<cmd>BufferPrevious<CR>")
--- Quit Buffer
-vim.keymap.set("n", "<leader>qb", "<cmd>BufferClose<CR>")
+
+-- Organize java imports
 vim.keymap.set("n", "<leader>ljo", '<cmd>lua require("jdtls").organize_imports()<CR>')
+
+-- Barbar keybinds
+vim.keymap.set("n", "<Tab>", "<cmd>BufferNext<CR>", { desc = "Go to next buffer" })
+vim.keymap.set("n", "<S-Tab>", "<cmd>BufferPrevious<CR>", { desc = "Go to previous buffer" })
+vim.keymap.set("n", "<leader>bq", "<cmd>BufferClose<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>bca", "<cmd>BufferCloseAllButCurrent<CR>",
+  { desc = "Close all buffers but the current buffer" })
+vim.keymap.set("n", "<leader>bcp", "<cmd>BufferCloseAllButCurrentOrPinned<CR>",
+  { desc = "Close all buffers but the current or pinned buffers" })
+vim.keymap.set("n", "<leader>bp", "<cmd>BufferPick<CR>", { desc = "Pick a buffer" })
+vim.keymap.set("n", "<leader>b.", "<cmd>BufferPin<CR>", { desc = "Pick a buffer" })
+vim.keymap.set("n", "<leader>bb", "<cmd>:BufferOrderByBufferNumber<CR>", { desc = "Order buffers by number" })
+vim.keymap.set("n", "<leader>bn", "<cmd>:BufferOrderByName<CR>", { desc = "Order buffers by name" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlights text when yanking",
