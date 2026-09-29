@@ -9,7 +9,8 @@ require("tkvim.java")
 
 -- setup must be called before loading
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+
+vim.cmd([[colorscheme tokyogogh]])
 vim.filetype.add({
   extension = {
     tml = "html",
