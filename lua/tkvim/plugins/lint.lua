@@ -8,8 +8,8 @@ return {
     lint.linters_by_ft = {
       sql = { "sqlfluff" },
       python = { "pylint", "mypy" },
-      javascript = { "eslint_d" },
-      typescript = { "eslint_d" },
+      -- javascript = { "eslint-lsp" },
+      -- typescript = { "eslint-lsp" },
       -- Add more file types as needed
     }
 

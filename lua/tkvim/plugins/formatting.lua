@@ -28,6 +28,7 @@ return {
       },
       formatters_by_ft = {
         javascript = { "prettier" },
+        typescriptreact = { "prettier" },
         html = { "prettier_html" },
         css = { "prettier" },
         json = { "prettier" },
