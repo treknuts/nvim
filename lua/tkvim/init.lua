@@ -14,5 +14,6 @@ vim.cmd([[colorscheme tokyogogh]])
 vim.filetype.add({
   extension = {
     tml = "html",
+    vm = "html",
   },
 })
